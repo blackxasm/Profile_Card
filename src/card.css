@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=DM+Sans&family=Manrope:wght@300&family=Poppins:wght@100;200&display=swap');
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+* {
+    font-family: 'Manrope', sans-serif;
+}
+
+:root {
+    --card-height: 65vh;
+    --card-width: calc(var(--card-height) / 1.5);
+}
+
+.text {
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    position: relative;
+    top: -6rem;
+    text-align: center;
+}
+
+.text h2 {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.text h2 span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+
+.icons {
+    opacity: 8;
+}
+
+.imgcard {
+    margin-top: 10rem;
+    text-align: center;
+}
+
+
+
+body {
+    min-height: 100vh;
+    background: #11131e;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+.card .imgcard img {
+    top: -8rem;
+    position: relative;
+    width: 50%;
+    clip-path: circle();
+}
+
+.icons {
+    text-align: center;
+    position: relative;
+}
+
+.card {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-family: cursive;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+
+.card::before {
+    opacity: -6;
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(var(--rotate), #cfbaf0, #7b27e0e8 43%, #ffafcc);
+    position: absolute;
+    transition: opacity 2s;
+    animation: spin 2.5s linear infinite;
+}
+
+
+.card:hover:before,
+.card:hover:after {
+    color: white;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+}
+
+.card:hover #github {
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    background-color: #171515;
+}
+
+.card:hover #Linkdln {
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    background-color: #0A66C2;
+}
+
+.card:hover #insta {
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-property: var(20deg);
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+}
+
+.icons i {
+    margin: .2rem;
+    border-radius: 4px;
+    font-size: .5rem;
+    margin: .5rem;
+    padding: .4rem;
+}
+
+.icons i svg {
+    margin-right: .2rem;
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(var(--rotate), #cfbaf0, #14213d 43%, #ffafcc);
+    opacity: 1;
+    animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+
+    100% {
+        --rotate: 360deg;
+    }
+}
